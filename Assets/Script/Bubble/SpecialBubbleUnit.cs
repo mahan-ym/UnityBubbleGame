@@ -79,16 +79,13 @@ public class SpecialBubbleUnit : BubbleUnit {
 		}
 	}
 
-	/// <summary>
-	/// 横向消除
-	/// </summary>
 	private void CleanRow()
 	{
 		Transform left = Instantiate (lineCollider.transform);
 		Transform right = Instantiate (lineCollider.transform);
 
-		left.parent = transform;
-		right.parent = transform;
+		left.SetParent(transform);
+		right.SetParent(transform);
 
 		left.localPosition = Vector3.zero;
 		right.localPosition = Vector3.zero;
@@ -106,17 +103,13 @@ public class SpecialBubbleUnit : BubbleUnit {
 		right.DOMoveX (300f, 0.8f).SetEase(Ease.Linear).OnComplete(CleanCollider);
 
 	}
-
-	/// <summary>
-	/// 消除一列
-	/// </summary>
 	private void CleanCol()
 	{
 		Transform up = Instantiate (lineCollider.transform);
 		Transform down = Instantiate (lineCollider.transform);
 
-		up.parent = transform;
-		down.parent = transform;
+		up.SetParent(transform);
+		down.SetParent(transform);
 
 		up.localPosition = Vector3.zero;
 		down.localPosition = Vector3.zero;
@@ -133,22 +126,16 @@ public class SpecialBubbleUnit : BubbleUnit {
 		down.DOMoveY (-500f, 0.8f).SetEase(Ease.Linear).OnComplete(CleanCollider);
 	}
 
-	/// <summary>
-	/// 消除四个方向
-	/// </summary>
 	private void CleanRowCol()
 	{
 		CleanRow ();
 		CleanCol ();
 	}
 
-	/// <summary>
-	/// 泡泡炸弹
-	/// </summary>
 	private void CleanRange()
 	{
 		Transform range = Instantiate (rangeCollider.transform);
-		range.parent = this.transform;
+		range.SetParent(this.transform);
 		range.localPosition = Vector3.zero;
 		range.gameObject.SetActive (true);
 		tempColliderList.Add (range);
