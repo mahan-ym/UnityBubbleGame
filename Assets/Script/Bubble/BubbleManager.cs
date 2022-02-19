@@ -73,41 +73,32 @@ public class BubbleManager : MonoBehaviour {
 			list.Add(tran);
 		}
 		SortView (list);
-
-		//CreateStoneBubble ();
 	}
 
-    public Transform CreateNewRandomBubble()
+    public Transform CreateNewRandomBubble() 
 	{
-
 		int type = Random.value > 0.9 ? 30 : 10;
-
 		int randonID =type+ Random.Range (1, 6);
-		//Debug.Log (randonID);
 		Transform newBubble = GetBubbleTran (randonID);
-		newBubble.parent = transform;
-
+		newBubble.SetParent(transform);
 		BubbleUnit bubble=newBubble.GetComponent<BubbleUnit> ();
 		bubble.SetData (randonID);
 		bubbleList.Add(bubble);
-
 		return newBubble;
 	}
 
-	void SortView(List<Transform> trans)
+	void SortView(List<Transform> trans) 
 	{
-		float len = 55f;
+		float len = 50f;
 		int x = 1;
 		int y = 0;
-		Vector3 startPos = new Vector3 (-205f, -350f, 0);
+		Vector3 startPos = new Vector3 (-190f, -350f, 0);
 		
 		int i = 1;
 		while (i<trans.Count) {
 			trans[i].localPosition = startPos + new Vector3(x*len,y*len,0);
-			
 			++x;
 			++i;
-			
 			if(x>=8)
 			{
 				x=0;
@@ -118,50 +109,34 @@ public class BubbleManager : MonoBehaviour {
 
 	void CreateStoneBubble()
 	{
-		Vector3 startPos = new Vector3 (-210f,-210f, 0);
+		Vector3 startPos = new Vector3 (-195f,-210f, 0);
 		float len = 52f;
 		for (int i=0; i<5; ++i) {
-		   
-
 			int randonID =40+ Random.Range (1, 6);
-
 			Transform newBubble = GetBubbleTran (randonID);
-			newBubble.parent = transform;
-
+			newBubble.SetParent(transform);
 			BubbleUnit bubble=newBubble.GetComponent<BubbleUnit> ();
 			bubble.SetData (randonID);
 			bubbleList.Add(bubble);
-
 			Vector3 pos = startPos + new Vector3(i*len,0f,0f);
 			bubble.transform.localPosition = pos;
-
 		}
 	}
 
 	#endregion
 
-	/// <summary>
-	/// 触发游戏的消除
-	/// </summary>
-	/// <param name="bubble">Bubble.</param>
 	public void Clean(BubbleUnit bubble)
 	{
 		Vector3 bubPos = bubble.transform.localPosition;
-
-
-
 		//clean bubble
 		List<BubbleUnit> linkList = GetLinkBubble (bubble);
-
 		CreateSpecialBubble(linkList.Count,bubPos);
 		SetScoreMulti (linkList.Count);
-
 		StartCoroutine (IECleanBubble(linkList));
 	}
 
 	IEnumerator IECleanBubble(List<BubbleUnit> linkList)
 	{
-
 		isCanClick = false;
 		int recycleCount = 0;
 		if (linkList.Count > 2) {
@@ -173,7 +148,6 @@ public class BubbleManager : MonoBehaviour {
 				{
 					recycleCount++;
 				}
-				
 				RecycleBubble(linkList[i]);
 				++i;
 				yield return new WaitForSeconds(0.1f);
