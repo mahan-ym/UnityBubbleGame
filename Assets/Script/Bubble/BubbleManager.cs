@@ -233,17 +233,13 @@ public class BubbleManager : MonoBehaviour {
 		BubbleUnit bubble = bub.GetComponent<BubbleUnit> ();
 		bubble.SetData (randomID);
 
-		bub.transform.parent = transform;
+		bub.transform.SetParent(transform);
 		bub.transform.localPosition = pos;
 
 		bubbleList.Add (bubble);
 
 	}
 
-	/// <summary>
-	/// 回收一个泡泡
-	/// </summary>
-	/// <param name="bubble">Bubble.</param>
 	public void RecycleBubble(BubbleUnit bubble)
 	{
 		if (bubbleList.Contains (bubble) == false) {
@@ -417,7 +413,7 @@ public class BubbleManager : MonoBehaviour {
 			BubbleConfigStruct info = layoutList[j];
 
 			Transform newBubble = GetBubbleTran(info.id);
-			newBubble.parent = transform;
+			newBubble.SetParent(transform);
 
 			BubbleUnit bubble=newBubble.GetComponent<BubbleUnit> ();
 			bubble.SetData (info.id);

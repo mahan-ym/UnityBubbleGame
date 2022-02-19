@@ -22,7 +22,7 @@ public class UIBoxBase : MonoBehaviour {
 	void ShowBoxFinish()
 	{
 		GameObject black = UIManager.Instance.Black;
-		black.transform.parent = this.transform;
+		black.transform.SetParent(this.transform);
 		black.transform.SetAsFirstSibling ();
 	}
 
@@ -30,6 +30,6 @@ public class UIBoxBase : MonoBehaviour {
 	{
 		this.gameObject.SetActive (false);
 
-		UIManager.Instance.Black.transform.parent = UIManager.Instance.transform;
+		UIManager.Instance.Black.transform.SetParent(UIManager.Instance.transform);
 	}
 }

@@ -14,30 +14,26 @@ public class BubbleGeneretor : MonoBehaviour {
 
 	void OnEnable()
 	{
-
-		
 		StartCoroutine (Generate());
 	}
 
-
+	// async generator of bubbles in MainPageBox
 	IEnumerator Generate()
 	{
 		while (true) {
 			yield return new WaitForSeconds(0.8f);
 			StartCoroutine(IEGenerateShowBubble());
-
-
 		}
 	}
 
-
+	// async random bubbles floating in MainPageBox
 	IEnumerator IEGenerateShowBubble()
 	{
 		Transform showBubbleTran = pool.Spawn ("ShowBubble");
 		Vector3 startPos = new Vector3 (-200f + Random.value * 400, -480f, 0);
 		Vector3 targetPos =new Vector3 (-500f+Random.value *1000,480f,0);
 
-		showBubbleTran.parent = transform;
+		showBubbleTran.SetParent(transform);
 		showBubbleTran.position = startPos;
 
 		float useTime = 12+ Random.value * 10;

@@ -1643,7 +1643,7 @@ public class AudioController : SingletonMonoBehaviour<AudioController>
         for ( int index = 0; index < audioObjs.Length; index++ )
         {
             var a = audioObjs[ index ];
-            a.transform.parent = null;
+            a.transform.SetParent(null);
         }
     }
 
@@ -2771,7 +2771,7 @@ public class AudioController : SingletonMonoBehaviour<AudioController>
             }
             if ( parentObj )
             {
-                audioObjInstance.transform.parent = parentObj;
+                audioObjInstance.transform.SetParent(parentObj);
             }
 
             sndObj = audioObjInstance.gameObject.GetComponent<AudioObject>();
