@@ -2,18 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using PathologicalGames;
-
-/// <summary>
-/// 泡泡的管理类 
-/// </summary>
 public class BubbleManager : MonoBehaviour {
 
 	public static BubbleManager Instance = null;
-
-
-	//当前的泡泡
 	public List<BubbleUnit> bubbleList = new List<BubbleUnit>();
-
 	public delegate void ScoreChangeEvent(int scoreValue);
 	public ScoreChangeEvent scoreChangeEvent;
 
@@ -43,17 +35,7 @@ public class BubbleManager : MonoBehaviour {
 
 	void Start () {
 		pool = PoolManager.Pools["BubblePool"];
-//		if (testLayoutData != "") {
-//			layoutData = testLayoutData;
-//		} else {
-//			layoutData = BubbleLayoutData.Instance.GetData (bubbleLayoutID);
-//		}
-//
-//		InitByLayoutData (layoutData);
 	}
-
-
-
 
 	#region  TestCode
 
@@ -179,9 +161,6 @@ public class BubbleManager : MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// 消除多个泡泡生成特殊泡泡
-	/// </summary>
 	void CreateSpecialBubble(int cleanCount,Vector3 pos)
 	{
 		if (cleanCount < 4) {
@@ -238,12 +217,6 @@ public class BubbleManager : MonoBehaviour {
 		AudioManager.Instance.PlayBubble ();
 	}
 
-
-	/// <summary>
-	/// 广度优先搜索 查找相连的 泡泡
-	/// </summary>
-	/// <returns>The link bubble.</returns>
-	/// <param name="bubble">Bubble.</param>
 	List<BubbleUnit> GetLinkBubble(BubbleUnit bubble)
 	{
 		List<BubbleUnit> resList = new List<BubbleUnit> ();
@@ -290,12 +263,6 @@ public class BubbleManager : MonoBehaviour {
 		return resList;
 	}
 
-	/// <summary>
-	/// 判断两个泡泡是否相连
-	/// </summary>
-	/// <returns><c>true</c> if this instance is touch the specified a b; otherwise, <c>false</c>.</returns>
-	/// <param name="a">The alpha component.</param>
-	/// <param name="b">The blue component.</param>
 	bool IsTouch(BubbleUnit a, BubbleUnit b)
 	{
 		float distance = Vector3.Distance (a.transform.localPosition, b.transform.localPosition);
@@ -314,9 +281,6 @@ public class BubbleManager : MonoBehaviour {
 	}
 
 
-	/// <summary>
-	/// 特殊泡泡的功能 消除同样颜色的泡泡
-	/// </summary>
 	public void ClearSameColorBubble(BubbleUnit bubble)
 	{
 		int typeID = Random.Range (1, 6);
@@ -342,9 +306,6 @@ public class BubbleManager : MonoBehaviour {
 
 	}
 
-	/// <summary>
-	/// 特殊泡泡效果 全屏消除
-	/// </summary>
 	public void CleanAllBubble()
 	{
 		List<BubbleUnit> tempBubbleList = new List<BubbleUnit> ();
@@ -362,9 +323,6 @@ public class BubbleManager : MonoBehaviour {
 	private string layoutData="";
 	public List<BubbleConfigStruct> layoutList = new List<BubbleConfigStruct>();
 
-	/// <summary>
-	/// 根据配置文件 初始化泡泡布置
-	/// </summary>
 	public void InitByLayoutData(string layoutStr)
 	{
 

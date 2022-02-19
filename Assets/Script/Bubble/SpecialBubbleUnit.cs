@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 
-/// <summary>
-/// 特殊的泡泡
-/// </summary>
 public class SpecialBubbleUnit : BubbleUnit {
 
 	public CircleCollider2D rangeCollider;
@@ -29,10 +26,6 @@ public class SpecialBubbleUnit : BubbleUnit {
 		BubbleManager.Instance.RecycleBubble(bubble);
 	}
 
-
-	/// <summary>
-	/// Raises the mouse down event.
-	/// </summary>
 	void OnMouseDown() {
 
 		if (BubbleManager.Instance.isCanClick == false) {
