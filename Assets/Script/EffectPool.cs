@@ -2,9 +2,6 @@
 using System.Collections;
 using PathologicalGames;
 using DG.Tweening;
-/// <summary>
-/// 特效池
-/// </summary>
 public class EffectPool : MonoBehaviour {
 
 	public static EffectPool Instance = null;
@@ -45,7 +42,7 @@ public class EffectPool : MonoBehaviour {
 
 	IEnumerator Recycle(ParticleSystem particle)
 	{
-		float time = particle.duration;
+		float time = particle.main.duration;
 		yield return new WaitForSeconds(time +0.1f);
 		pool.Despawn (particle.transform);
 	}
