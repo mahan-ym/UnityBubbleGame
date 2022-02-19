@@ -127,9 +127,6 @@ public class BubbleConfig : MonoBehaviour {
 
 }
 
-/// <summary>
-/// 一个泡泡的结构体
-/// </summary>
 public class BubbleConfigStruct
 {
 	public int id;

@@ -4,10 +4,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 
 
-/// <summary>
-/// 游戏UI模块的控制类
-// 控制UI模块的显示和隐藏
-/// </summary>
 public class UIManager : MonoBehaviour {
 
 	//singleton

@@ -2,9 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-/// <summary>
-/// 游戏结束
-/// </summary>
 public class GameEndBox : UIBoxBase {
 
 	public Text scoreTx;
@@ -27,10 +24,8 @@ public class GameEndBox : UIBoxBase {
 		int hightestScore = PlayerData.Instance.GetHightestScore ();
 		hightScoreTx.text = hightestScore.ToString();
 
-
 #if UNITY_EDITOR
 		return;
-
 #endif
 
 #if UNITY_ANDROID

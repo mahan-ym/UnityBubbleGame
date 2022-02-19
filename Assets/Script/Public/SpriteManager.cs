@@ -87,7 +87,7 @@ public class SpriteManager : MonoBehaviour {
 		}
 	}
 	
-	void  GetAll(DirectoryInfo dir)//搜索文件夹中的文件
+	void  GetAll(DirectoryInfo dir)
 	{
 		FileInfo[] allFile = dir.GetFiles();
 		foreach (FileInfo fi in allFile)

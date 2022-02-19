@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/// <summary>
-/// 关卡中的布局配置
-/// </summary>
 public class BubbleLayoutData : IData {
 
 	static string dataName="";

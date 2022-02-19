@@ -20,7 +20,6 @@ public class RecordBox : UIBoxBase {
 		string recordStr = "";
 		for (int i=recordList.Count-1; i>=0; --i) {
 			recordStr+=recordList[i] + "\r\n";
-			//Debug.Log(recordList[i]);
 		}
 		recordTx.text = recordStr;
 

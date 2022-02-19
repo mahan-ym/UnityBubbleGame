@@ -2,9 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-/// <summary>
-/// 结冰泡泡
-/// </summary>
 public class FreezeBubbleUnit : BubbleUnit {
 
 	public Text HitText;
@@ -30,10 +27,6 @@ public class FreezeBubbleUnit : BubbleUnit {
 			freezeImg.gameObject.SetActive(false);
 		}
 	}
-
-	/// <summary>
-	/// Raises the mouse down event.
-	/// </summary>
 	void OnMouseDown() {
 		if (BubbleManager.Instance.isCanClick == false) {
 			return;

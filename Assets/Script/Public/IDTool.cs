@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-/// <summary>
-/// Identifier tool.
-/// </summary>
 public class IDTool  {
 
 	public static int GetType(int ID)

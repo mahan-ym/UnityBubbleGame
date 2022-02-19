@@ -2,9 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-/// <summary>
-/// Stone bubble unit.
-/// </summary>
 public class StoneBubbleUnit : BubbleUnit {
 
 	public Text HitText;
@@ -28,6 +25,5 @@ public class StoneBubbleUnit : BubbleUnit {
 		if (BubbleManager.Instance.isCanClick == false) {
 			return;
 		}
-		//BubbleManager.Instance.Clean (this);
 	}
 }

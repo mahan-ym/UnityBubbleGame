@@ -2,9 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-/// <summary>
-/// 全局的数据存档类
-/// </summary>
 public class PlayerData : MonoBehaviour {
 
 	private static PlayerData _instance=null;
@@ -14,15 +11,11 @@ public class PlayerData : MonoBehaviour {
 			{
 				GameObject playerGO = new GameObject();
 				playerGO.name= "PlayerData";
-
 				_instance = playerGO.AddComponent<PlayerData>();
-				//_instance.Init();
-
 			}
 			return _instance;
 		}
 	}
-
 
 	public void Init()
 	{
@@ -30,7 +23,6 @@ public class PlayerData : MonoBehaviour {
 			PlayerPrefs.SetInt("IsFirstInit",1);
 		}
 	}	
-
 
 	public int GetHightestScore()
 	{
@@ -40,9 +32,6 @@ public class PlayerData : MonoBehaviour {
 	{
 		PlayerPrefs.SetInt ("HightestScore",score);
 	}
-
-
-
 
 	public void SetGameTimes(int times)
 	{
@@ -56,9 +45,6 @@ public class PlayerData : MonoBehaviour {
 	{
 		return PlayerPrefs.GetInt ("GameTimes",0);
 	}
-
-
-
 
 	public void AddRecord(int score)
 	{

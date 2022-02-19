@@ -16,24 +16,17 @@ public class GameUIBox : UIBoxBase {
 	private int scoreTemp=0;
 
 	// Use this for initialization
-	void Start () {
-	
-	}
+	void Start () {}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update () {}
 
 	public override void ShowBox ()
 	{
 		this.gameObject.SetActive (true);
 		StartCoroutine ("TimeDown");
-
 		BubbleManager.Instance.scoreChangeEvent += ScoreChange;
-
 		hightestText.text = PlayerData.Instance.GetHightestScore ().ToString();
-
 		AudioManager.Instance.PlayMusic ("GameMusic");
 	} 
 
@@ -54,9 +47,6 @@ public class GameUIBox : UIBoxBase {
 		scoreText.text = this.scoreTemp.ToString ();
 	}
 
-
-
-
 	public void OnPauseBtnClick()
 	{
 		UIManager.Instance.ShowBox (UIBoxType.PauseBox);
@@ -64,7 +54,6 @@ public class GameUIBox : UIBoxBase {
 
 		AudioManager.Instance.ButtonClick ();
 	}
-
 
 	IEnumerator TimeDown()
 	{
@@ -84,8 +73,6 @@ public class GameUIBox : UIBoxBase {
 
 				StopCoroutine("TimeDown");
 			}
-
-
 			yield return 0;
 		}
 	}

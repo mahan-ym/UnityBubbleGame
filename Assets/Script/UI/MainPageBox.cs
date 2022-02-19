@@ -8,17 +8,10 @@ public class MainPageBox : UIBoxBase {
 	public Image SoundImage;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () {}
 
-	}
-
-
-	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update () {}
 
 	public override void ShowBox ()
 	{
